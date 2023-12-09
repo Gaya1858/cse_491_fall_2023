@@ -57,6 +57,8 @@ void runWorld(BiomeType biome, int width, int height, const unsigned int SEED, i
             }
         }
 
+        world.AddItem("Boots", "symbol", 'B').SetPosition(2, 2).SetName("Boots").SetProperty("Health", 3.0);
+        world.AddItem("Shield", "symbol", 'S').SetPosition(1, 1).SetName("Shield").SetProperty("Health", 3.0);
         world.AddAgent<cse491::PacingAgent>("Pacer 1").SetPosition(5, int(world.GetRandom(0, height-1)));
         world.AddAgent<cse491::PacingAgent>("Pacer 2").SetPosition(8, int(world.GetRandom(0, height-1)));
         world.AddAgent<cse491::PacingAgent>("Pacer 3").SetPosition(10, int(world.GetRandom(0, height-1)));
@@ -83,10 +85,10 @@ void runWorld(BiomeType biome, int width, int height, const unsigned int SEED, i
         world.AddAgent<cse491::PacingAgent>("Pacer 24").SetPosition(62, int(world.GetRandom(0, height-1)));
         world.AddAgent<cse491::PacingAgent>("Pacer 25").SetPosition(65, int(world.GetRandom(0, height-1)));
         world.AddAgent<cse491::PacingAgent>("Pacer 26").SetPosition(70, int(world.GetRandom(0, height-1)));
-        auto & astar_agent = static_cast<walle::AStarAgent&>(world.AddAgent<walle::AStarAgent>("AStar1"));
-        astar_agent.SetPosition(4, 4);
-        astar_agent.SetGoalPosition(1, 1);
-        astar_agent.RecalculatePath();
+//        auto & astar_agent = static_cast<walle::AStarAgent&>(world.AddAgent<walle::AStarAgent>("AStar1"));
+//        astar_agent.SetPosition(4, 4);
+//        astar_agent.SetGoalPosition(1, 1);
+//        astar_agent.RecalculatePath();
 
         world.AddAgent<i_2D::MainInterface>("Interface2").SetProperty("symbol", '@').SetName("Player");
 

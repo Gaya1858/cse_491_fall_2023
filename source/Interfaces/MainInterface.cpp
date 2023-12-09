@@ -315,7 +315,11 @@ namespace i_2D {
                     HandleResize(event, grid);
 
                 } else if (event.type == sf::Event::MouseMoved) {
-                    mMenu.HandleMouseMove(mWindow);
+                    auto c = mMenu.HandleMouseMove(mWindow);
+                    if(c!="null"){
+                    auto texture = mTextureHolder.GetTexture(c);
+                    mMenu.SetInventoryItemDisplay(texture);
+                    }
 
                 } else if (event.type == sf::Event::MouseButtonPressed) {
                     MouseClickEvent(event, GetID(), item_map);
@@ -490,7 +494,7 @@ namespace i_2D {
         }
     }
 
-    /*
+    /**
      * This function chooses the world to load the texture for it's images
      * and sets the current texture map for drawing
      */
@@ -512,7 +516,7 @@ namespace i_2D {
     }
 
     /**
-     * this function handles mouseclick event
+     * This function handles mouseclick event
      * @param event for mouse click
      */
     void MainInterface::MouseClickEvent(const sf::Event &event, const size_t entity_id, const item_map_t &item_map) {
@@ -600,6 +604,4 @@ namespace i_2D {
     void MainInterface::setMInputWaitTime(double waitTime) {
         MainInterface::mInputWaitTime = waitTime;
     }
-
-
 }
